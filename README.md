@@ -1,6 +1,6 @@
 # MD Execution Codes
 
-https://shiny-tick-ff1.notion.site/3a1bb2883c308087ac9ac6dff41a0297
+User manual：https://shiny-tick-ff1.notion.site/3a1bb2883c308087ac9ac6dff41a0297
 
     git clone https://github.com/S-Ando-Biophysics/MD.git
     cd MD
