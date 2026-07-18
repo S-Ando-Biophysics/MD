@@ -1,0 +1,11 @@
+source leaprc.RNA.OL3
+source leaprc.gaff2
+source leaprc.water.tip3p
+
+LIG = loadMol2 LIG.mol2
+loadAmberParams LIG.frcmod
+
+mol = loadpdb clean.pdb
+check mol
+solvatebox mol TIP3PBOX 10.0
+quit
