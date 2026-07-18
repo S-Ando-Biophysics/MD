@@ -1,0 +1,37 @@
+define                  = -DPOSRES_1000
+
+integrator              = md
+dt                      = 0.002
+nsteps                  = 50000
+
+nstxout                 = 500
+nstvout                 = 500
+nstenergy               = 500
+nstlog                  = 500
+
+continuation            = no
+constraint_algorithm    = lincs
+constraints             = h-bonds
+lincs_iter              = 1
+lincs_order             = 4
+
+cutoff-scheme           = Verlet
+nstlist                 = 20
+coulombtype             = PME
+rcoulomb                = 1.0
+vdwtype                 = Cut-off
+rvdw                    = 1.0
+DispCorr                = EnerPres
+
+tcoupl                  = V-rescale
+tc-grps                 = System
+tau_t                   = 0.1
+ref_t                   = 310
+
+pcoupl                  = no
+
+pbc                     = xyz
+
+gen_vel                 = yes
+gen_temp                = 310
+gen_seed                = -1

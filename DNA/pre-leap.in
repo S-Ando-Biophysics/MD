@@ -1,0 +1,7 @@
+source leaprc.DNA.OL24
+source leaprc.water.tip3p
+
+mol = loadpdb clean.pdb
+check mol
+solvatebox mol TIP3PBOX 10.0
+quit

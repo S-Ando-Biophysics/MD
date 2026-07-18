@@ -1,0 +1,39 @@
+integrator              = md
+dt                      = 0.002		; 2 fs = 0.002 ps
+nsteps                  = 250000000	; 250000000 * 0.002 ps = 500000 ps = 500 ns
+
+nstxout-compressed      = 5000
+nstenergy               = 1000
+nstlog                  = 1000
+nstcheckpoint           = 5000
+
+continuation            = yes
+constraint_algorithm    = lincs
+constraints             = h-bonds
+lincs_iter              = 1
+lincs_order             = 4
+
+cutoff-scheme           = Verlet
+nstlist                 = 20
+
+coulombtype             = PME
+rcoulomb                = 1.0
+
+vdwtype                 = Cut-off
+rvdw                    = 1.0
+DispCorr                = EnerPres
+
+tcoupl                  = V-rescale
+tc-grps                 = System
+tau_t                   = 0.1
+ref_t                   = 310
+
+pcoupl                  = C-rescale
+pcoupltype              = isotropic
+tau_p                   = 2.0
+ref_p                   = 1.0
+compressibility         = 4.5e-5
+
+pbc                     = xyz
+
+gen_vel                 = no
