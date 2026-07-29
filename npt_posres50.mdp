@@ -1,4 +1,4 @@
-define                  = -DPOSRES_100
+define                  = -DPOSRES_50
 
 integrator              = md
 dt                      = 0.002
