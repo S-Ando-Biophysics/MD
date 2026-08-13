@@ -3,7 +3,7 @@ set -euo pipefail
 
 cd 03_GROMACS/05_PROC-GROMACS
 
-gmx trjconv -s md.tpr -f md_fit.xtc -n index.ndx -o md.pdb -dump 0
+gmx trjconv -s ../04_MD/md.tpr -f md_fit.xtc -n index.ndx -o md.pdb -dump 0
 
 awk '
 BEGIN {
