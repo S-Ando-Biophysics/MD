@@ -20,7 +20,7 @@ autoimage
 
 rms first :${FIT_RES}&!@H= out rmsd_fit_nosol.dat
 
-strip :WAT,SOL,Na+,NA+,NA,Cl-,CL-,CL
+strip :WAT,SOL,Na+,NA+,NA,K+,K,Cl-,CL-,CL
 
 trajout md_fit_nosol.nc netcdf
 trajout md_fit_nosol.xtc xtc
