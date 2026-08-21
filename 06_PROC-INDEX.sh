@@ -11,7 +11,7 @@ gmx make_ndx -f ../04_MD/md.tpr -o index.ndx
 
 # l
 # ri 1-○○
-# name 11 Nucleic
+# name ○○ Nuc
 # q
 
 cd ../..
