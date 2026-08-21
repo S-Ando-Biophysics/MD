@@ -12,18 +12,18 @@
     bash 07_PROC-CONV.sh
     bash 08_PROC-OUTPUT.sh
 
-    bash ANALYSIS-CODES/A01_RMSD.sh
-    bash ANALYSIS-CODES/A02_RMSF.sh
-    bash ANALYSIS-CODES/A03_CLUSTER_GROMOS.sh
+    bash ANALYSIS-CODES/RMSD.sh
+    bash ANALYSIS-CODES/RMSF.sh
+    bash ANALYSIS-CODES/CLUSTER_GROMOS.sh
 
-    bash H-BOND.sh
-    python STACKING.py
+    bash ANALYSIS-CODES/H-BOND.sh
+    python ANALYSIS-CODES/STACKING.py
 
-    bash ALL-FRAMES-1.sh
-    bash ALL-FRAMES-2.sh
-    bash 3DNA.sh
-    bash CURVES.sh
-    bash FPOCKET-R.sh
+    bash ANALYSIS-CODES/ALL-FRAMES-1.sh
+    bash ANALYSIS-CODES/ALL-FRAMES-2.sh
+    bash ANALYSIS-CODES/3DNA.sh
+    bash ANALYSIS-CODES/CURVES.sh
+    bash ANALYSIS-CODES/FPOCKET-R.sh
 
 ## Installation of required software
 
