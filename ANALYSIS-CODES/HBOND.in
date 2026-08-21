@@ -1,0 +1,64 @@
+# [e.g.] 5'-AC-3' + 5'-GU-3' 
+
+# ============================================================
+# A1-U4 Watson-Crick base pair
+# ============================================================
+
+# A(N6)-H61 ... U(O4)
+hbond AU_HB01 \
+    donormask :1@N6 \
+    donorhmask :1@H61 \
+    acceptormask :4@O4 \
+    dist 3.5 angle 135 \
+    out AU_HB01_count.dat \
+    avgout AU_HB01_avg.dat \
+    series uuseries AU_HB01_series.dat \
+    printatomnum
+
+# U(N3)-H3 ... A(N1)
+hbond AU_HB02 \
+    donormask :4@N3 \
+    donorhmask :4@H3 \
+    acceptormask :1@N1 \
+    dist 3.5 angle 135 \
+    out AU_HB02_count.dat \
+    avgout AU_HB02_avg.dat \
+    series uuseries AU_HB02_series.dat \
+    printatomnum
+
+# ============================================================
+# C2-G3 Watson-Crick base pair
+# ============================================================
+
+# C(N4)-H41 ... G(O6)
+hbond CG_HB01 \
+    donormask :2@N4 \
+    donorhmask :2@H41 \
+    acceptormask :3@O6 \
+    dist 3.5 angle 135 \
+    out CG_HB01_count.dat \
+    avgout CG_HB01_avg.dat \
+    series uuseries CG_HB01_series.dat \
+    printatomnum
+
+# G(N1)-H1 ... C(N3)
+hbond CG_HB02 \
+    donormask :3@N1 \
+    donorhmask :3@H1 \
+    acceptormask :2@N3 \
+    dist 3.5 angle 135 \
+    out CG_HB02_count.dat \
+    avgout CG_HB02_avg.dat \
+    series uuseries CG_HB02_series.dat \
+    printatomnum
+
+# G(N2)-H21 ... C(O2)
+hbond CG_HB03 \
+    donormask :3@N2 \
+    donorhmask :3@H21 \
+    acceptormask :2@O2 \
+    dist 3.5 angle 135 \
+    out CG_HB03_count.dat \
+    avgout CG_HB03_avg.dat \
+    series uuseries CG_HB03_series.dat \
+    printatomnum
