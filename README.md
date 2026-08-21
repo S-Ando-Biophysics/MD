@@ -18,8 +18,12 @@
 
     bash H-BOND.sh
     python STACKING.py
+
+    bash ALL-FRAMES-1.sh
+    bash ALL-FRAMES-2.sh
     bash 3DNA.sh
     bash CURVES.sh
+    bash FPOCKET-R.sh
 
 ## Installation of required software
 
