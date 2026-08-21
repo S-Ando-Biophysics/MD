@@ -8,13 +8,13 @@ export LC_ALL=C
 # User settings
 # ============================================================
 
-# The directory where Curves+ is installed
-CURVES_DIR="/mnt/g/Code-test/ANALYSIS-CODES/curves"
+# Directory where Curves+ is installed
+CURVES_DIR="/path/to/Curves+"
 
-# Residue number of 1st strand (5'→3')
+# Residue numbers of 1st strand (5'→3')
 STRAND_1="1:12"
 
-# Residue number of 2nd strand (3'→5')
+# Residue numbers of 2nd strand (3'→5')
 STRAND_2="24:13"
 
 
