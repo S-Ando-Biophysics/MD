@@ -9,9 +9,37 @@ ROOT_DIR="$(cd -- "${SCRIPT_DIR}/.." && pwd)"
 OUTPUT_DIR="${ROOT_DIR}/03_GROMACS/06_OUTPUT"
 
 ANALYSIS_ROOT="${ROOT_DIR}/04_ANALYSIS"
-ANALYSIS_DIR="${ANALYSIS_ROOT}/02_RMSF"
 
 mkdir -p "$ANALYSIS_ROOT"
+
+MAX_NUMBER=$(
+    find "$ANALYSIS_ROOT" \
+        -mindepth 1 \
+        -maxdepth 1 \
+        -type d \
+        -printf "%f\n" \
+    | awk '
+        /^[0-9]+_/ {
+            split($0, parts, "_")
+            number = parts[1] + 0
+
+            if (number > max) {
+                max = number
+            }
+        }
+
+        END {
+            print max + 0
+        }
+    '
+)
+
+NEXT_NUMBER=$((MAX_NUMBER + 1))
+
+printf -v ANALYSIS_NUMBER "%02d" "$NEXT_NUMBER"
+
+ANALYSIS_DIR="${ANALYSIS_ROOT}/${ANALYSIS_NUMBER}_RMSF"
+
 mkdir -p "$ANALYSIS_DIR"
 
 XTC=$(
