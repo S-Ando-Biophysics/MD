@@ -16,10 +16,10 @@
     bash ANALYSIS-CODES/A02_RMSF.sh
     bash ANALYSIS-CODES/A03_CLUSTER_GROMOS.sh
 
-    python H-BOND.py
-    python STACKING.py
-    python 3DNA.py
-    python CURVES.py
+    bash H-BOND.sh
+    bash STACKING.sh
+    bash 3DNA.sh
+    bash CURVES.sh
 
 ## Installation of required software
 
