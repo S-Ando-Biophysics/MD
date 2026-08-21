@@ -39,7 +39,16 @@ copy_topology() {
   cp "$TOP_DIR/posres_50.itp" "$destination/"
 }
 
-echo "=== EM: POSRES 1000 ==="
+echo
+echo "========================================"
+echo " Step 1/4 : Energy minimization "
+echo "========================================"
+echo
+
+echo "----------------------------------------"
+echo " EM 1/2 : POSRES 1000 "
+echo "----------------------------------------"
+echo
 
 copy_topology "$EM_POSRES_DIR"
 cp "$TOP_DIR/leap_GMX.gro" "$EM_POSRES_DIR/"
@@ -51,7 +60,11 @@ cp em_posres1000.mdp "$EM_POSRES_DIR/"
   gmx mdrun -v -deffnm em_posres1000
 )
 
-echo "=== EM: FREE ==="
+echo
+echo "----------------------------------------"
+echo " EM 2/2 : FREE "
+echo "----------------------------------------"
+echo
 
 copy_topology "$EM_FREE_DIR"
 cp "$EM_POSRES_DIR/em_posres1000.gro" "$EM_FREE_DIR/"
@@ -65,7 +78,16 @@ cp em_free.mdp "$EM_FREE_DIR/"
 
 REFERENCE_STRUCTURE="$EM_FREE_DIR/em_free.gro"
 
-echo "=== NVT: POSRES 1000 ==="
+echo
+echo "========================================"
+echo " Step 2/4 : NVT equilibration "
+echo "========================================"
+echo
+
+echo "----------------------------------------"
+echo " NVT : POSRES 1000 "
+echo "----------------------------------------"
+echo
 
 copy_topology "$NVT_POSRES_DIR"
 cp "$REFERENCE_STRUCTURE" "$NVT_POSRES_DIR/start.gro"
@@ -99,23 +121,48 @@ run_restrained_npt() {
   )
 }
 
-echo "=== NPT: POSRES 1000 ==="
+echo
+echo "========================================"
+echo " Step 3/4 : NPT equilibration "
+echo "========================================"
+echo
+
+echo "----------------------------------------"
+echo " NPT 1/5 : POSRES 1000 "
+echo "----------------------------------------"
+echo
 
 run_restrained_npt "$NPT_1000_DIR" "npt_posres1000.mdp" "$NVT_POSRES_DIR/nvt_posres1000.gro" "$NVT_POSRES_DIR/nvt_posres1000.cpt" "npt_posres1000"
 
-echo "=== NPT: POSRES 500 ==="
+echo
+echo "----------------------------------------"
+echo " NPT 2/5 : POSRES 500 "
+echo "----------------------------------------"
+echo
 
 run_restrained_npt "$NPT_500_DIR" "npt_posres500.mdp" "$NPT_1000_DIR/npt_posres1000.gro" "$NPT_1000_DIR/npt_posres1000.cpt" "npt_posres500"
 
-echo "=== NPT: POSRES 100 ==="
+echo
+echo "----------------------------------------"
+echo " NPT 3/5 : POSRES 100 "
+echo "----------------------------------------"
+echo
 
 run_restrained_npt "$NPT_100_DIR" "npt_posres100.mdp" "$NPT_500_DIR/npt_posres500.gro" "$NPT_500_DIR/npt_posres500.cpt" "npt_posres100"
 
-echo "=== NPT: POSRES 50 ==="
+echo
+echo "----------------------------------------"
+echo " NPT 4/5 : POSRES 50 "
+echo "----------------------------------------"
+echo
 
 run_restrained_npt "$NPT_50_DIR" "npt_posres50.mdp" "$NPT_100_DIR/npt_posres100.gro" "$NPT_100_DIR/npt_posres100.cpt" "npt_posres50"
 
-echo "=== NPT: FREE ==="
+echo
+echo "----------------------------------------"
+echo " NPT 5/5 : FREE "
+echo "----------------------------------------"
+echo
 
 copy_topology "$NPT_FREE_DIR"
 cp "$NPT_50_DIR/npt_posres50.gro" "$NPT_FREE_DIR/start.gro"
@@ -128,7 +175,11 @@ cp npt_free.mdp "$NPT_FREE_DIR/"
   gmx mdrun -v -deffnm npt_free
 )
 
-echo "=== Production MD ==="
+echo
+echo "========================================"
+echo " Step 4/4 : Production MD "
+echo "========================================"
+echo
 
 copy_topology "$MD_DIR"
 cp "$NPT_FREE_DIR/npt_free.gro" "$MD_DIR/start.gro"
@@ -141,4 +192,8 @@ cp md.mdp "$MD_DIR/"
   gmx mdrun -v -deffnm md -nb auto -nbfe auto -pme auto -pmefft auto -bonded auto -update auto -cpi md.cpt
 )
 
-echo "=== Finished ==="
+echo
+echo "========================================"
+echo " Finished "
+echo "========================================"
+echo
