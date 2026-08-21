@@ -17,7 +17,7 @@
     bash ANALYSIS-CODES/A03_CLUSTER_GROMOS.sh
 
     bash H-BOND.sh
-    bash STACKING.sh
+    python STACKING.py
     bash 3DNA.sh
     bash CURVES.sh
 
