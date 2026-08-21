@@ -18,7 +18,7 @@ unwrap :${FIT_RES}
 center :${FIT_RES} mass origin
 autoimage
 
-rms first :${FIT_RES}&!@H= out rmsd_fit_nosol.dat
+rms first :${FIT_RES}&!@H= out rmsd_target.dat
 
 strip :WAT,SOL,Na+,NA+,NA,K+,K,Cl-,CL-,CL
 
