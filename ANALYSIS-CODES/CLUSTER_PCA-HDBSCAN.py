@@ -5,6 +5,7 @@ from __future__ import annotations
 import gc
 import warnings
 from pathlib import Path
+import re
 
 import matplotlib
 matplotlib.use("Agg")
@@ -104,7 +105,33 @@ ROOT_DIR = SCRIPT_DIR.parent
 
 INPUT_DIR = ROOT_DIR / "03_GROMACS" / "06_OUTPUT"
 ANALYSIS_ROOT = ROOT_DIR / "04_ANALYSIS"
-OUTPUT_DIR = ANALYSIS_ROOT / "03_CLUSTER_PCA-HDBSCAN"
+
+ANALYSIS_ROOT.mkdir(parents=True, exist_ok=True)
+
+analysis_numbers = []
+
+for path in ANALYSIS_ROOT.iterdir():
+    if not path.is_dir():
+        continue
+
+    match = re.match(r"^(\d+)_", path.name)
+
+    if match:
+        analysis_numbers.append(
+            int(match.group(1))
+        )
+
+next_analysis_number = (
+    max(analysis_numbers) + 1
+    if analysis_numbers
+    else 1
+)
+
+OUTPUT_DIR = (
+    ANALYSIS_ROOT
+    / f"{next_analysis_number:02d}_CLUSTER_PCA-HDBSCAN"
+)
+
 REPRESENTATIVE_DIR = OUTPUT_DIR / "representative-structures"
 
 COORDINATE_CACHE = OUTPUT_DIR / "aligned_coordinates.float32.dat"
