@@ -99,12 +99,20 @@ echo "  Number : $TARGET_GROUP"
 echo "  Name   : $TARGET_NAME"
 echo
 
+# ------------------------------------------------------------
+# Output XTC
+# ------------------------------------------------------------
+
 printf "%s\n" "$TARGET_GROUP" | \
 gmx trjconv \
     -s "$TPR" \
     -f "$XTC" \
     -n "$INDEX" \
     -o "${OUTPUT_DIR}/md_fit_target.xtc"
+
+# ------------------------------------------------------------
+# Output PDB
+# ------------------------------------------------------------
 
 printf "%s\n" "$TARGET_GROUP" | \
 gmx trjconv \
@@ -113,6 +121,16 @@ gmx trjconv \
     -n "$INDEX" \
     -o "${OUTPUT_DIR}/md_target.pdb" \
     -dump 0
+
+# ------------------------------------------------------------
+# Output TPR
+# ------------------------------------------------------------
+
+printf "%s\n" "$TARGET_GROUP" | \
+gmx convert-tpr \
+    -s "$TPR" \
+    -n "$INDEX" \
+    -o "${OUTPUT_DIR}/md_target.tpr"
 
 echo
 echo "========================================"
@@ -125,4 +143,5 @@ echo
 echo "Output files:"
 echo "  ${OUTPUT_DIR}/md_fit_target.xtc"
 echo "  ${OUTPUT_DIR}/md_target.pdb"
+echo "  ${OUTPUT_DIR}/md_target.tpr"
 echo
