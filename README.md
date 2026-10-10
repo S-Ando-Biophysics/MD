@@ -3,19 +3,17 @@
     git clone https://github.com/S-Ando-Biophysics/MD.git
     cd MD
     
-    bash 01_AMBER-1.sh
-    bash 02_AMBER-2.sh
-    bash 03_ACPYPE.sh
-    bash 04_GROMACS.sh
+    bash 01_AMBER.sh
+    bash 02_ACPYPE.sh
+    bash 03_GROMACS.sh
     
-    bash 06_PROC-INDEX.sh
-    bash 07_PROC-CONV.sh
-    bash 08_PROC-OUTPUT.sh
+    bash 04_PROCESSING-GROMACS_1_INDEX.sh
+    bash 04_PROCESSING-GROMACS_2_CONV.sh
+    bash 04_PROCESSING-GROMACS_3_OUTPUT.sh
 
     bash ANALYSIS-CODES/RMSD.sh
     bash ANALYSIS-CODES/RMSF.sh
     bash ANALYSIS-CODES/CLUSTER_GROMOS.sh
-
     bash ANALYSIS-CODES/H-BOND.sh
     python ANALYSIS-CODES/STACKING.py
 
